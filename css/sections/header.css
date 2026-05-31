@@ -7,7 +7,7 @@
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent);
+  background: #0a0a0a;
 }
 
 .header.scrolled {
@@ -40,7 +40,9 @@
 
 .header__link:hover {
   opacity: 1;
-  color: #C41E3A;
+  background: linear-gradient(135deg, #a74800, #b47e00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .header__actions {
@@ -62,4 +64,41 @@
   background: transparent;
   color: #ffffff;
   cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+  .header {
+    padding: 20px 40px;
+  }
+
+  .header__nav {
+    gap: 24px;
+  }
+
+  .header__link {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 16px 20px;
+  }
+
+  .header__nav {
+    display: none;
+  }
+
+  .header__actions {
+    gap: 12px;
+  }
+
+  .header__search {
+    font-size: 16px;
+  }
+
+  .header__lang {
+    font-size: 12px;
+    padding: 4px 12px;
+  }
 }

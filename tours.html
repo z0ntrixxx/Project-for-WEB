@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>China-time</title>
+  <title>Туры - China-time</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -12,15 +12,15 @@
     rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/authentication.css">
-  <link rel="stylesheet" href="css/lightbox.css">
+  <link rel="stylesheet" href="css/tours.css">
 </head>
 
 <body>
 
   <nav class="header" id="header">
-    <a href="#" class="header__logo">China-time</a>
+    <a href="index.html" class="header__logo">China-time</a>
     <ul class="header__nav">
-      <li><a href="tours.html" class="header__link">Направления</a></li>
+      <li><a href="tours.html" class="header__link active-link">Направления</a></li>
       <li><a href="404.html" class="header__link">Культура</a></li>
       <li><a href="404.html" class="header__link">Впечатления</a></li>
     </ul>
@@ -30,109 +30,59 @@
     </div>
   </nav>
 
-  <header class="hero">
-    <span class="hero__subtitle">Путешествуйте с мудростью</span>
-    <h1 class="hero__title">Откройте для себя <br><span>Великий Китай</span></h1>
-    <p class="hero__description">От древних храмов Пекина до футуристических небоскрёбов Шанхая</p>
-    <div class="hero__cta-group">
-      <a href="#destinations" class="btn btn--primary">Начать путешествие →</a>
-      <a href="404.html" class="btn btn--outline">Узнать больше</a>
-    </div>
-  </header>
-
-  <section class="section">
-    <span class="section-label">Историческое наследие</span>
-    <div class="content-grid">
-      <div class="content-card">
-        <div class="content-card__image">
-          <span class="badge">UNESCO</span>
-          <img src="images/wall.jpg" alt="Великая стена">
-        </div>
-      </div>
-      <div class="content-card__content">
-        <h2 class="content-card__title">Великая Китайская стена</h2>
-        <p class="content-card__text">Протянувшись более чем на 21 000 километров, Великая стена — это не просто
-          архитектурный шедевр, а живая история китайской цивилизации.</p>
-        <a href="404.html" class="btn btn--text">Читать историю →</a>
-      </div>
-    </div>
+  <section class="page-hero">
+    <h1>Готовые туры по Китаю</h1>
+    <p>Выбирай маршрут, бронируй даты — остальное берём на себя</p>
   </section>
 
-  <section class="destinations-section" id="destinations">
-    <div class="section-header">
-      <span class="section-label">Популярные направления</span>
-      <h2 class="section-header__title">Куда отправиться?</h2>
-      <p class="section-header__subtitle">Мы отобрали для вас самые впечатляющие места</p>
-    </div>
+  <section class="tours-section">
+    <div class="tours-grid">
 
-    <div class="destinations-slider">
-      <div class="destinations-slider__slide active">
-        <div class="destinations-slider__image-wrapper">
-          <img src="/images/pekin.jpg" alt="Пекин">
-          <div class="destinations-slider__overlay">
-            <span class="gallery-tag">Хит</span>
-            <h3 class="gallery-item__title">Пекин</h3>
-            <p class="gallery-item__location">Сердце империи</p>
+      <article class="tour-card">
+        <div class="tour-card__image">
+          <img src="images/pekin.jpg" alt="Пекин">
+          <span class="tour-card__badge">7 дней</span>
+        </div>
+        <div class="tour-card__content">
+          <h3 class="tour-card__title">Классический Пекин</h3>
+          <p class="tour-card__desc">Великая стена, Запретный город, Храм Неба и настоящая пекинская утка.</p>
+          <div class="tour-card__footer">
+            <span class="tour-card__price">от 85 000 ₽</span>
+            <a href="404.html" class="btn btn--primary">Забронировать</a>
           </div>
-          <button class="destinations-slider__arrow prev" onclick="changeDestSlide(-1)">‹</button>
-          <button class="destinations-slider__arrow next" onclick="changeDestSlide(1)">›</button>
         </div>
-      </div>
+      </article>
 
-      <div class="destinations-slider__slide">
-        <div class="destinations-slider__image-wrapper">
-          <img src="/images/xian.jpg" alt="Сиань">
-          <div class="destinations-slider__overlay">
-            <h3 class="gallery-item__title">Сиань</h3>
-            <p class="gallery-item__location">Древняя столица</p>
+      <article class="tour-card">
+        <div class="tour-card__image">
+          <img src="images/xian.jpg" alt="Сиань">
+          <span class="tour-card__badge">5 дней</span>
+        </div>
+        <div class="tour-card__content">
+          <h3 class="tour-card__title">Тайны Сианя</h3>
+          <p class="tour-card__desc">Терракотовая армия, древняя городская стена, мусульманский квартал.</p>
+          <div class="tour-card__footer">
+            <span class="tour-card__price">от 62 000 ₽</span>
+            <a href="404.html" class="btn btn--primary">Забронировать</a>
           </div>
-          <button class="destinations-slider__arrow prev" onclick="changeDestSlide(-1)">‹</button>
-          <button class="destinations-slider__arrow next" onclick="changeDestSlide(1)">›</button>
         </div>
-      </div>
+      </article>
 
-      <div class="destinations-slider__slide">
-        <div class="destinations-slider__image-wrapper">
-          <img src="/images/Shanghai.jpg" alt="Шанхай">
-          <div class="destinations-slider__overlay">
-            <span class="gallery-tag">Новое</span>
-            <h3 class="gallery-item__title">Шанхай</h3>
-            <p class="gallery-item__location">Город будущего</p>
+      <article class="tour-card">
+        <div class="tour-card__image">
+          <img src="images/Shanghai.jpg" alt="Шанхай">
+          <span class="tour-card__badge">6 дней</span>
+        </div>
+        <div class="tour-card__content">
+          <h3 class="tour-card__title">Футуристичный Шанхай</h3>
+          <p class="tour-card__desc">Набережная Вайтань, башня Shanghai Tower, водные города Цзядин.</p>
+          <div class="tour-card__footer">
+            <span class="tour-card__price">от 94 000 ₽</span>
+            <a href="404.html" class="btn btn--primary">Забронировать</a>
           </div>
-          <button class="destinations-slider__arrow prev" onclick="changeDestSlide(-1)">‹</button>
-          <button class="destinations-slider__arrow next" onclick="changeDestSlide(1)">›</button>
         </div>
-      </div>
+      </article>
 
-      <div class="destinations-slider__dots">
-        <span class="dot active" onclick="goToDestSlide(0)"></span>
-        <span class="dot" onclick="goToDestSlide(1)"></span>
-        <span class="dot" onclick="goToDestSlide(2)"></span>
-      </div>
-    </div>
-
-    <div class="center-button">
-      <a href="tours.html" class="btn btn--outline">Все направления →</a>
-    </div>
-  </section>
-
-  <section class="parallax-section">
-    <div class="parallax-section__bg"></div>
-    <div class="parallax-section__content">
-      <span class="section-label">Сиань • Провинция Шэньси</span>
-      <h2 class="parallax-section__title">Терракотовая армия: стражи императора</h2>
-      <p class="parallax-section__text">Более 8000 уникальных фигур воинов были созданы более 2200 лет назад.</p>
-      <a href="404.html" class="btn btn--gold">Забронировать →</a>
-      <div class="parallax-section__stats">
-        <div class="stat-item">
-          <div class="stat-item__number">8000+</div>
-          <div class="stat-item__label">фигур воинов</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-item__number">2200</div>
-          <div class="stat-item__label">лет истории</div>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -239,22 +189,6 @@
     </div>
   </div>
 
-  <div id="photo-lightbox" class="lightbox">
-    <div class="lightbox__backdrop"></div>
-    <div class="lightbox__content">
-      <button class="lightbox__close" onclick="closeLightbox()">✕</button>
-      <img id="lightbox-img" src="" alt="" class="lightbox__image">
-      <div class="lightbox__actions">
-        <button class="lightbox__btn lightbox__btn--like" onclick="handleVote('like')">
-          <span>👍</span> <span id="like-count">0</span>
-        </button>
-        <button class="lightbox__btn lightbox__btn--dislike" onclick="handleVote('dislike')">
-          <span>👎</span> <span id="dislike-count">0</span>
-        </button>
-      </div>
-    </div>
-  </div>
-
   <script>
     let destCurrent = 0;
     const destSlides = document.querySelectorAll('.destinations-slider__slide');
@@ -308,6 +242,22 @@
       }
     }, { passive: true });
   </script>
+
+  <div id="photo-lightbox" class="lightbox">
+    <div class="lightbox__backdrop"></div>
+    <div class="lightbox__content">
+      <button class="lightbox__close" onclick="closeLightbox()">✕</button>
+      <img id="lightbox-img" src="" alt="" class="lightbox__image">
+      <div class="lightbox__actions">
+        <button class="lightbox__btn lightbox__btn--like" onclick="handleVote('like')">
+          <span>👍</span> <span id="like-count">0</span>
+        </button>
+        <button class="lightbox__btn lightbox__btn--dislike" onclick="handleVote('dislike')">
+          <span>👎</span> <span id="dislike-count">0</span>
+        </button>
+      </div>
+    </div>
+  </div>
 
   <script>
     const lightbox = document.getElementById('photo-lightbox');
@@ -484,7 +434,7 @@
           user.lockUntil = now + 30000;
           saveDB();
           startLockTimer(30, btn, email);
-          return showMessage('login-msg', 'Слишком много попыток. Подождите 30 сек.', 'error');
+          return showMessage('login-msg', ' Слишком много попыток. Подождите 30 сек.', 'error');
         }
         return showMessage('login-msg', `❌ Неверный пароль. Осталось попыток: ${3 - user.fails}`, 'error');
       }
@@ -554,8 +504,8 @@
         input.disabled = false;
       }, 4000);
     }
-  </script>
 
+  </script>
 </body>
 
 </html>
