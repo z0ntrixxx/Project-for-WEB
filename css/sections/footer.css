@@ -124,3 +124,110 @@
   color: #666666;
   font-size: 12px;
 }
+
+/* Стили для сообщения об успешной подписке */
+.newsletter-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 0;
+  animation: fadeInUp 0.4s ease;
+}
+
+.newsletter-success__icon {
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+
+.newsletter-success__text {
+  color: #4dff88; /* Ярко-зеленый */
+  font-size: 14px;
+  font-weight: 500;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 1024px) {
+  .footer {
+    padding: 96px 40px 48px;
+    margin-top: 96px;
+  }
+  
+  .footer__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 64px 20px 32px;
+    margin-top: 64px;
+  }
+  
+  .footer__grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+  }
+  
+  .footer__brand h3 {
+    font-size: 24px;
+  }
+  
+  .footer__brand p {
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+  
+  .footer__newsletter {
+    max-width: 100%;
+  }
+  
+  .footer__column h4 {
+    font-size: 13px;
+    margin-bottom: 12px;
+  }
+  
+  .footer__column ul li {
+    margin-bottom: 10px;
+  }
+  
+  .footer__column a {
+    font-size: 13px;
+  }
+  
+  .footer__bottom {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+  
+  .footer__legal {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .footer__legal a {
+    font-size: 11px;
+  }
+  
+  .footer__social {
+    gap: 16px;
+  }
+  
+  .footer__social a {
+    font-size: 16px;
+  }
+  
+  .footer__copyright {
+    font-size: 11px;
+    margin-top: 24px;
+    padding-top: 24px;
+  }
+}

@@ -44,18 +44,41 @@
   gap: 16px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .hero__title {
-    font-size: 48px;
+    font-size: 56px;
   }
   
   .hero__description {
-    font-size: 16px;
-    padding: 0 24px;
+    font-size: 18px;
+    padding: 0 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 80px;
+  }
+  
+  .hero__subtitle {
+    font-size: 11px;
+    letter-spacing: 3px;
+    padding: 0 20px;
+  }
+  
+  .hero__title {
+    font-size: 36px;
+    line-height: 1.2;
+  }
+  
+  .hero__description {
+    font-size: 15px;
+    padding: 0 20px;
+    margin-bottom: 40px;
   }
   
   .hero__cta-group {
     flex-direction: column;
-    padding: 0 24px;
+    padding: 0 20px;
   }
 }

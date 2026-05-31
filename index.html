@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>QWERy — Китай</title>
+  <title>China-time</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/authentication.css">
+  <link rel="stylesheet" href="css/lightbox.css">
 </head>
 <body>
 
@@ -15,12 +17,12 @@
     <a href="#" class="header__logo">China-time</a>
     <ul class="header__nav">
       <li><a href="#destinations" class="header__link">Направления</a></li>
-      <li><a href="#culture" class="header__link">Культура</a></li>
-      <li><a href="#experiences" class="header__link">Впечатления</a></li>
+      <li><a href="404.html" class="header__link">Культура</a></li>
+      <li><a href="404.html" class="header__link">Впечатления</a></li>
     </ul>
     <div class="header__actions">
-      <span class="header__search">🔍</span>
-      <button class="header__lang">RU</button>
+      <button class="header__auth-btn" onclick="openModal('login')">Войти</button>
+      <button class="header__auth-btn" onclick="openModal('registration')">Зарегистрироваться</button>
     </div>
   </nav>
 
@@ -30,7 +32,7 @@
     <p class="hero__description">От древних храмов Пекина до футуристических небоскрёбов Шанхая</p>
     <div class="hero__cta-group">
       <a href="#destinations" class="btn btn--primary">Начать путешествие →</a>
-      <a href="#culture" class="btn btn--outline">Узнать больше</a>
+      <a href="404.html" class="btn btn--outline">Узнать больше</a>
     </div>
   </header>
 
@@ -46,7 +48,7 @@
       <div class="content-card__content">
         <h2 class="content-card__title">Великая Китайская стена</h2>
         <p class="content-card__text">Протянувшись более чем на 21 000 километров, Великая стена — это не просто архитектурный шедевр, а живая история китайской цивилизации.</p>
-        <a href="#" class="btn btn--text">Читать историю →</a>
+        <a href="404.html" class="btn btn--text">Читать историю →</a>
       </div>
     </div>
   </section>
@@ -59,7 +61,6 @@
   </div>
 
   <div class="destinations-slider">
-    <!-- Слайд 1 -->
     <div class="destinations-slider__slide active">
       <div class="destinations-slider__image-wrapper">
         <img src="/images/pekin.jpg" alt="Пекин">
@@ -73,7 +74,6 @@
       </div>
     </div>
 
-    <!-- Слайд 2 -->
     <div class="destinations-slider__slide">
       <div class="destinations-slider__image-wrapper">
         <img src="/images/xian.jpg" alt="Сиань">
@@ -86,7 +86,6 @@
       </div>
     </div>
 
-    <!-- Слайд 3 -->
     <div class="destinations-slider__slide">
       <div class="destinations-slider__image-wrapper">
         <img src="/images/Shanghai.jpg" alt="Шанхай">
@@ -100,7 +99,6 @@
       </div>
     </div>
 
-    <!-- Индикаторы -->
     <div class="destinations-slider__dots">
       <span class="dot active" onclick="goToDestSlide(0)"></span>
       <span class="dot" onclick="goToDestSlide(1)"></span>
@@ -109,7 +107,7 @@
   </div>
 
   <div class="center-button">
-    <a href="#" class="btn btn--outline">Все направления →</a>
+    <a href="404.html" class="btn btn--outline">Все направления →</a>
   </div>
 </section>
 
@@ -119,7 +117,7 @@
       <span class="section-label">Сиань • Провинция Шэньси</span>
       <h2 class="parallax-section__title">Терракотовая армия: стражи императора</h2>
       <p class="parallax-section__text">Более 8000 уникальных фигур воинов были созданы более 2200 лет назад.</p>
-      <a href="#" class="btn btn--gold">Забронировать →</a>
+      <a href="404.html" class="btn btn--gold">Забронировать →</a>
       <div class="parallax-section__stats">
         <div class="stat-item">
           <div class="stat-item__number">8000+</div>
@@ -140,43 +138,44 @@
           <h3><span>China-time</span></h3>
           <p>Путешествуйте осознанно.<br>Открывайте мир с мудростью.</p>
           <div class="footer__newsletter">
-            <input type="email" placeholder="Ваш email">
-            <button>→</button>
-          </div>
+  <input type="email" id="newsletter-input" placeholder="Ваш email">
+  <button type="button" onclick="subscribeNewsletter()">→</button>
+</div>
+<div id="newsletter-message" style="width:100%; margin-top:10px; font-size:14px; min-height:20px;"></div>
         </div>
         <div class="footer__column">
           <h4>Услуги</h4>
           <ul>
-            <li><a href="#">Индивидуальные туры</a></li>
-            <li><a href="#">Групповые экспедиции</a></li>
-            <li><a href="#">Визовая поддержка</a></li>
+            <li><a href="404.html">Индивидуальные туры</a></li>
+            <li><a href="404.html">Групповые экспедиции</a></li>
+            <li><a href="404.html">Визовая поддержка</a></li>
           </ul>
         </div>
         <div class="footer__column">
           <h4>О компании</h4>
           <ul>
-            <li><a href="#">Наша история</a></li>
-            <li><a href="#">Команда гидов</a></li>
-            <li><a href="#">Отзывы</a></li>
+            <li><a href="404.html">Наша история</a></li>
+            <li><a href="404.html">Команда гидов</a></li>
+            <li><a href="404.html">Отзывы</a></li>
           </ul>
         </div>
         <div class="footer__column">
           <h4>Помощь</h4>
           <ul>
-            <li><a href="#">FAQ</a></li>
-            <li><a href="#">Контакты</a></li>
+            <li><a href="404.html">FAQ</a></li>
+            <li><a href="404.html">Контакты</a></li>
           </ul>
         </div>
       </div>
       <div class="footer__bottom">
         <div class="footer__legal">
-          <a href="#">Условия использования</a>
-          <a href="#">Политика конфиденциальности</a>
+          <a href="404.html">Условия использования</a>
+          <a href="404.html">Политика конфиденциальности</a>
         </div>
         <div class="footer__social">
-          <a href="#">💬</a>
-          <a href="#">🐦</a>
-          <a href="#">📷</a>
+          <a href="404.html">Instagramm</a>
+          <a href="404.html">Facebook</a>
+          <a href="404.html">Вконтакте</a>
         </div>
       </div>
       <div class="footer__copyright">
@@ -185,16 +184,53 @@
     </div>
   </footer>
 
-  <script>
-    window.addEventListener('scroll', function() {
-      const header = document.getElementById('header');
-      if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    });
-  </script>
+  <!-- Модальные окна Входа и Регистрации -->
+<div id="auth-modal" class="auth-modal">
+  <div class="auth-modal__backdrop" onclick="closeModal()"></div>
+  <div class="auth-modal__content">
+    <button class="auth-modal__close" onclick="closeModal()">✕</button>
+
+    <!-- Форма Входа -->
+    <div id="login-form" class="auth-modal__form active">
+      <h2 class="auth-modal__title">Вход в аккаунт</h2>
+      <div id="login-msg" class="auth-modal__message"></div>
+      <form onsubmit="handleLogin(event)">
+        <div class="auth-modal__input-group">
+          <label>Email</label>
+          <input type="email" name="email" placeholder="your@email.com" required>
+        </div>
+        <div class="auth-modal__input-group">
+          <label>Пароль</label>
+          <input type="password" name="password" placeholder="••••••••" required>
+        </div>
+        <button type="submit" id="login-btn" class="auth-modal__submit-btn">Войти</button>
+        <p class="auth-modal__switch-text">Нет аккаунта? <a href="#" onclick="switchModal('register'); return false;">Зарегистрироваться</a></p>
+      </form>
+    </div>
+
+    <!-- Форма Регистрации -->
+    <div id="register-form" class="auth-modal__form">
+      <h2 class="auth-modal__title">Регистрация</h2>
+      <div id="register-msg" class="auth-modal__message"></div>
+      <form onsubmit="handleRegister(event)">
+        <div class="auth-modal__input-group">
+          <label>Имя (только буквы)</label>
+          <input type="text" name="name" placeholder="Иван / John" required pattern="^[a-zA-Zа-яА-ЯёЁ\s]+$" title="Только буквы и пробелы">
+        </div>
+        <div class="auth-modal__input-group">
+          <label>Email</label>
+          <input type="email" name="email" placeholder="your@gmail.com" required>
+        </div>
+        <div class="auth-modal__input-group">
+          <label>Пароль</label>
+          <input type="password" name="password" placeholder="Мин. 8 символов" required minlength="8" pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()])[A-Za-z\d!@#$%^&*()]{8,}$" title="Мин. 8 символов, 1 заглавная, 1 цифра, 1 спецсимвол (!@#$%^&*()), только латиница">
+        </div>
+        <button type="submit" id="register-btn" class="auth-modal__submit-btn">Создать аккаунт</button>
+        <p class="auth-modal__switch-text">Уже есть аккаунт? <a href="#" onclick="switchModal('login'); return false;">Войти</a></p>
+      </form>
+    </div>
+  </div>
+</div>
 
 <script>
   let destCurrent = 0;
@@ -216,29 +252,25 @@
     if (next >= destTotal) next = 0;
     if (next < 0) next = destTotal - 1;
     showDestSlide(next);
-    resetDestTimer(); // Обнуляем таймер при ручном переключении
+    resetDestTimer(); 
   }
 
   function goToDestSlide(index) {
     showDestSlide(index);
-    resetDestTimer(); // Обнуляем таймер при клике на точку
+    resetDestTimer(); 
   }
 
-  // Запуск автопереключения каждые 4 секунды
   function startDestTimer() {
     destInterval = setInterval(() => changeDestSlide(1), 4000);
   }
 
-  // Сброс и перезапуск таймера
   function resetDestTimer() {
     clearInterval(destInterval);
     startDestTimer();
   }
 
-  // Инициализация
   startDestTimer();
 
-  // Свайпы для мобильных
   let touchStartX = 0;
   const sliderEl = document.querySelector('.destinations-slider');
   
@@ -252,6 +284,283 @@
       changeDestSlide(diff > 0 ? 1 : -1);
     }
   }, { passive: true });
+</script>
+
+<div id="photo-lightbox" class="lightbox">
+  <div class="lightbox__backdrop"></div>
+  <div class="lightbox__content">
+    <button class="lightbox__close" onclick="closeLightbox()">✕</button>
+    <img id="lightbox-img" src="" alt="" class="lightbox__image">
+    <div class="lightbox__actions">
+      <button class="lightbox__btn lightbox__btn--like" onclick="handleVote('like')">
+        <span>👍</span> <span id="like-count">0</span>
+      </button>
+      <button class="lightbox__btn lightbox__btn--dislike" onclick="handleVote('dislike')">
+        <span>👎</span> <span id="dislike-count">0</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const lightbox = document.getElementById('photo-lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const likeCountEl = document.getElementById('like-count');
+  const dislikeCountEl = document.getElementById('dislike-count');
+  const likeBtn = document.querySelector('.lightbox__btn--like');
+  const dislikeBtn = document.querySelector('.lightbox__btn--dislike');
+
+  let currentImageId = '';
+  let votes = JSON.parse(localStorage.getItem('photoVotes')) || {};
+
+  const triggerImages = document.querySelectorAll('.destinations-slider__image-wrapper img, .content-card__image img');
+  
+  triggerImages.forEach(img => {
+    img.classList.add('lightbox-trigger');
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', () => openLightbox(img.src, img.alt));
+  });
+
+  function openLightbox(src, alt) {
+    currentImageId = src.split('/').pop().split('.')[0];
+    lightboxImg.src = src;
+    lightboxImg.alt = alt;
+    updateVoteUI();
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden'; 
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = ''; 
+  }
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox || e.target.classList.contains('lightbox__backdrop')) {
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
+  });
+
+  function updateVoteUI() {
+    const data = votes[currentImageId] || { likes: 0, dislikes: 0, userVote: null };
+    likeCountEl.textContent = data.likes;
+    dislikeCountEl.textContent = data.dislikes;
+
+    likeBtn.classList.toggle('active-like', data.userVote === 'like');
+    dislikeBtn.classList.toggle('active-dislike', data.userVote === 'dislike');
+  }
+
+  function handleVote(type) {
+    if (!votes[currentImageId]) {
+      votes[currentImageId] = { likes: 0, dislikes: 0, userVote: null };
+    }
+    const data = votes[currentImageId];
+
+    if (data.userVote === type) {
+      data[type + 's']--;
+      data.userVote = null;
+    } else {
+      if (data.userVote) {
+        data[data.userVote + 's']--;
+      }
+      data[type + 's']++;
+      data.userVote = type;
+    }
+
+    votes[currentImageId] = data;
+    localStorage.setItem('photoVotes', JSON.stringify(votes));
+    updateVoteUI();
+  }
+</script>
+
+<script>
+  // --- Управление модальными окнами ---
+  const authModal = document.getElementById('auth-modal');
+  const loginForm = document.getElementById('login-form');
+  const registerForm = document.getElementById('register-form');
+  let lockInterval = null;
+
+  function openModal(type) {
+    authModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    switchModal(type);
+    clearMessages();
+  }
+
+  function closeModal() {
+    authModal.classList.remove('active');
+    document.body.style.overflow = '';
+    clearMessages();
+    if (lockInterval) clearInterval(lockInterval); // Сброс таймера при закрытии
+  }
+
+  function switchModal(type) {
+    loginForm.classList.remove('active');
+    registerForm.classList.remove('active');
+    type === 'login' ? loginForm.classList.add('active') : registerForm.classList.add('active');
+    clearMessages();
+  }
+
+  function showMessage(id, text, type) {
+    const el = document.getElementById(id);
+    el.textContent = text;
+    el.className = `auth-modal__message ${type}`;
+  }
+
+  function clearMessages() {
+    document.getElementById('login-msg').textContent = '';
+    document.getElementById('login-msg').className = 'auth-modal__message';
+    document.getElementById('register-msg').textContent = '';
+    document.getElementById('register-msg').className = 'auth-modal__message';
+  }
+
+  // --- База данных (LocalStorage) ---
+  const usersDB = JSON.parse(localStorage.getItem('usersDB')) || {};
+  function saveDB() { localStorage.setItem('usersDB', JSON.stringify(usersDB)); }
+
+  // --- Валидация ---
+  function isValidName(name) {
+    return /^[a-zA-Zа-яА-ЯёЁ\s]+$/.test(name) && name.trim().length >= 2;
+  }
+
+  function isValidEmail(email) {
+    // Строгая проверка формата. Реальное существование проверяется только на бэкенде.
+    return /^[a-zA-Z0-9._%+-]+@(gmail|mail|yandex|outlook|hotmail|yahoo|proton|icloud)\.[a-z]{2,}$/.test(email);
+  }
+
+  function isValidPassword(pass) {
+    // Мин 8, 1 заглавная, 1 цифра, 1 спецсимвол с цифр (!@#$%^&*()), только латиница
+    return /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()])[A-Za-z\d!@#$%^&*()]{8,}$/.test(pass);
+  }
+
+  // --- Регистрация ---
+  function handleRegister(e) {
+    e.preventDefault();
+    clearMessages();
+    const name = e.target.name.value.trim();
+    const email = e.target.email.value.trim().toLowerCase();
+    const password = e.target.password.value;
+
+    if (!isValidName(name)) return showMessage('register-msg', 'Имя: только буквы (рус/англ) и пробелы.', 'error');
+    if (!isValidEmail(email)) return showMessage('register-msg', 'Email: поддерживаются Gmail, Mail, Yandex и аналоги.', 'error');
+    if (!isValidPassword(password)) return showMessage('register-msg', 'Пароль: мин. 8 симв., 1 заглавная, 1 цифра, 1 спецсимвол (!@#$%^&*()), только латиница.', 'error');
+    if (usersDB[email]) return showMessage('register-msg', 'Этот email уже зарегистрирован.', 'error');
+
+    usersDB[email] = { name, password, fails: 0, lockUntil: 0 };
+    saveDB();
+    showMessage('register-msg', '✅ Регистрация успешна! Теперь войдите.', 'success');
+    e.target.reset();
+    setTimeout(() => switchModal('login'), 1500);
+  }
+
+  // --- Вход ---
+  function handleLogin(e) {
+    e.preventDefault();
+    clearMessages();
+    const email = e.target.email.value.trim().toLowerCase();
+    const password = e.target.password.value;
+    const btn = document.getElementById('login-btn');
+
+    if (!isValidEmail(email)) return showMessage('login-msg', 'Введите корректный email.', 'error');
+    
+    const user = usersDB[email];
+    if (!user) return showMessage('login-msg', 'Аккаунт не найден. Сначала зарегистрируйтесь.', 'error');
+
+    // Проверка блокировки
+    const now = Date.now();
+    if (now < user.lockUntil) {
+      const secLeft = Math.ceil((user.lockUntil - now) / 1000);
+      startLockTimer(secLeft, btn, email);
+      return;
+    }
+
+    // Проверка пароля
+    if (user.password !== password) {
+      user.fails = (user.fails || 0) + 1;
+      saveDB();
+      if (user.fails >= 3) {
+        user.lockUntil = now + 30000;
+        saveDB();
+        startLockTimer(30, btn, email);
+        return showMessage('login-msg', '🔒 Слишком много попыток. Подождите 30 сек.', 'error');
+      }
+      return showMessage('login-msg', `❌ Неверный пароль. Осталось попыток: ${3 - user.fails}`, 'error');
+    }
+
+    // Успешный вход
+    user.fails = 0;
+    user.lockUntil = 0;
+    saveDB();
+    showMessage('login-msg', '✅ Вход выполнен успешно!', 'success');
+    setTimeout(() => {
+      closeModal();
+      e.target.reset();
+      // Меняем кнопку на имя пользователя
+      document.querySelector('.header__auth-btn').textContent = user.name.split(' ')[0];
+      document.querySelector('.header__auth-btn').onclick = () => alert(`Привет, ${user.name}!`);
+    }, 1000);
+  }
+
+  // --- Таймер блокировки ---
+  function startLockTimer(seconds, btn, email) {
+    let sec = seconds;
+    btn.disabled = true;
+    btn.textContent = `Подождите ${sec}с`;
+    showMessage('login-msg', `🔒 Вход заблокирован. Осталось: ${sec} сек`, 'error');
+    
+    lockInterval = setInterval(() => {
+      sec--;
+      btn.textContent = `Подождите ${sec}с`;
+      showMessage('login-msg', `🔒 Вход заблокирован. Осталось: ${sec} сек`, 'error');
+      if (sec <= 0) {
+        clearInterval(lockInterval);
+        btn.disabled = false;
+        btn.textContent = 'Войти';
+        clearMessages();
+        usersDB[email].lockUntil = 0;
+        usersDB[email].fails = 0;
+        saveDB();
+      }
+    }, 1000);
+  }
+
+  // Закрытие по Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && authModal.classList.contains('active')) closeModal();
+  });
+</script>
+
+<script>
+function subscribeNewsletter() {
+  const input = document.getElementById('newsletter-input');
+  const msgDiv = document.getElementById('newsletter-message');
+  const email = input.value.trim().toLowerCase();
+  
+  console.log('Email:', email);
+  
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@(gmail|mail|yandex|outlook|hotmail|yahoo|proton|icloud)\.[a-z]{2,}$/;
+  
+  if (!emailRegex.test(email)) {
+    msgDiv.innerHTML = '<span style="color:#ff4d4d;">⚠️ Введите корректный email</span>';
+    input.style.borderColor = '#ff4d4d';
+    setTimeout(() => input.style.borderColor = '#2a2a2a', 2000);
+    return;
+  }
+  
+  // Успех
+  msgDiv.innerHTML = '<span style="color:#4dff88;">✅ Спасибо за подписку на рассылку!</span>';
+  input.value = '';
+  input.disabled = true;
+  
+  setTimeout(() => {
+    msgDiv.innerHTML = '';
+    input.disabled = false;
+  }, 4000);
+}
 </script>
 
 </body>

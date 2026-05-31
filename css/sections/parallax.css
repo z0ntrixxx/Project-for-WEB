@@ -49,11 +49,75 @@
 .stat-item__number {
   font-size: 40px;
   font-weight: 700;
-  color: #D4AF37;
+  background: linear-gradient(135deg, #a74800, #b47e00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .stat-item__label {
   font-size: 14px;
-  color: #D4AF37;
+  background: linear-gradient(135deg, #a74800, #b47e00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;;
   margin-top: 8px;
+}
+
+@media (max-width: 1024px) {
+  .parallax-section {
+    margin: 96px 0;
+  }
+  
+  .parallax-section__content {
+    padding: 96px 40px;
+    min-height: 600px;
+  }
+  
+  .parallax-section__title {
+    font-size: 44px;
+  }
+  
+  .parallax-section__text {
+    font-size: 18px;
+  }
+  
+  .stat-item__number {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .parallax-section {
+    margin: 64px 0;
+  }
+  
+  .parallax-section__content {
+    padding: 64px 30px;
+    min-height: auto;
+  }
+  
+  .parallax-section__title {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+  
+  .parallax-section__text {
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+  
+  .parallax-section__stats {
+    display: flex;
+    flex-direction: row; 
+    gap: 32px; 
+    flex-wrap: wrap; 
+  }
+  
+  .stat-item__number {
+    font-size: 32px;
+  }
+  
+  .stat-item__label {
+    font-size: 13px;
+  }
 }
