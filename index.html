@@ -31,17 +31,16 @@
   </nav>
 
   <header class="hero">
+    </div>
     <span class="hero__subtitle">Путешествуйте с мудростью</span>
     <h1 class="hero__title">Откройте для себя <br><span>Великий Китай</span></h1>
     <p class="hero__description">От древних храмов Пекина до футуристических небоскрёбов Шанхая</p>
     <div class="hero__cta-group">
-      <a href="#destinations" class="btn btn--primary">Начать путешествие →</a>
-      <a href="404.html" class="btn btn--outline">Узнать больше</a>
+      <a href="#destinations" class="btn btn--primary">Начать путешествие </a>
     </div>
   </header>
 
   <section class="section">
-    <span class="section-label">Историческое наследие</span>
     <div class="content-grid">
       <div class="content-card">
         <div class="content-card__image">
@@ -50,6 +49,7 @@
         </div>
       </div>
       <div class="content-card__content">
+        <span class="content-label">Историческое наследие</span>
         <h2 class="content-card__title">Великая Китайская стена</h2>
         <p class="content-card__text">Протянувшись более чем на 21 000 километров, Великая стена — это не просто
           архитектурный шедевр, а живая история китайской цивилизации.</p>
@@ -227,334 +227,340 @@
           </div>
           <div class="auth-modal__input-group">
             <label>Пароль</label>
-            <input type="password" name="password" placeholder="Мин. 8 символов" required minlength="8"
+            <input type="password" name="password" placeholder="Min 8, 1ABC, 1digit, 1!@#" required minlength="8"
               pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()])[A-Za-z\d!@#$%^&*()]{8,}$"
               title="Мин. 8 символов, 1 заглавная, 1 цифра, 1 спецсимвол (!@#$%^&*()), только латиница">
+          </div>
+          <div class="auth-modal__input-group">
+            <label>Повторите пароль</label>
+            <input type="password" name="password_confirm" placeholder="Повторите пароль" required minlength="8">
           </div>
           <button type="submit" id="register-btn" class="auth-modal__submit-btn">Создать аккаунт</button>
           <p class="auth-modal__switch-text">Уже есть аккаунт? <a href="#"
               onclick="switchModal('login'); return false;">Войти</a></p>
         </form>
       </div>
-    </div>
-  </div>
 
-  <div id="photo-lightbox" class="lightbox">
-    <div class="lightbox__backdrop"></div>
-    <div class="lightbox__content">
-      <button class="lightbox__close" onclick="closeLightbox()">✕</button>
-      <img id="lightbox-img" src="" alt="" class="lightbox__image">
-      <div class="lightbox__actions">
-        <button class="lightbox__btn lightbox__btn--like" onclick="handleVote('like')">
-          <span>👍</span> <span id="like-count">0</span>
-        </button>
-        <button class="lightbox__btn lightbox__btn--dislike" onclick="handleVote('dislike')">
-          <span>👎</span> <span id="dislike-count">0</span>
-        </button>
+      <div id="photo-lightbox" class="lightbox">
+        <div class="lightbox__backdrop"></div>
+        <div class="lightbox__content">
+          <button class="lightbox__close" onclick="closeLightbox()">✕</button>
+          <img id="lightbox-img" src="" alt="" class="lightbox__image">
+          <div class="lightbox__actions">
+            <button class="lightbox__btn lightbox__btn--like" onclick="handleVote('like')">
+              <span>👍</span> <span id="like-count">0</span>
+            </button>
+            <button class="lightbox__btn lightbox__btn--dislike" onclick="handleVote('dislike')">
+              <span>👎</span> <span id="dislike-count">0</span>
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
 
-  <script>
-    let destCurrent = 0;
-    const destSlides = document.querySelectorAll('.destinations-slider__slide');
-    const destDots = document.querySelectorAll('.destinations-slider__dots .dot');
-    const destTotal = destSlides.length;
-    let destInterval;
+      <script>
+        let destCurrent = 0;
+        const destSlides = document.querySelectorAll('.destinations-slider__slide');
+        const destDots = document.querySelectorAll('.destinations-slider__dots .dot');
+        const destTotal = destSlides.length;
+        let destInterval;
 
-    function showDestSlide(index) {
-      destSlides.forEach(s => s.classList.remove('active'));
-      destDots.forEach(d => d.classList.remove('active'));
-      destSlides[index].classList.add('active');
-      destDots[index].classList.add('active');
-      destCurrent = index;
-    }
-
-    function changeDestSlide(dir) {
-      let next = destCurrent + dir;
-      if (next >= destTotal) next = 0;
-      if (next < 0) next = destTotal - 1;
-      showDestSlide(next);
-      resetDestTimer();
-    }
-
-    function goToDestSlide(index) {
-      showDestSlide(index);
-      resetDestTimer();
-    }
-
-    function startDestTimer() {
-      destInterval = setInterval(() => changeDestSlide(1), 4000);
-    }
-
-    function resetDestTimer() {
-      clearInterval(destInterval);
-      startDestTimer();
-    }
-
-    startDestTimer();
-
-    let touchStartX = 0;
-    const sliderEl = document.querySelector('.destinations-slider');
-
-    sliderEl.addEventListener('touchstart', (e) => {
-      touchStartX = e.changedTouches[0].screenX;
-    }, { passive: true });
-
-    sliderEl.addEventListener('touchend', (e) => {
-      const diff = touchStartX - e.changedTouches[0].screenX;
-      if (Math.abs(diff) > 50) {
-        changeDestSlide(diff > 0 ? 1 : -1);
-      }
-    }, { passive: true });
-  </script>
-
-  <script>
-    const lightbox = document.getElementById('photo-lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const likeCountEl = document.getElementById('like-count');
-    const dislikeCountEl = document.getElementById('dislike-count');
-    const likeBtn = document.querySelector('.lightbox__btn--like');
-    const dislikeBtn = document.querySelector('.lightbox__btn--dislike');
-
-    let currentImageId = '';
-    let votes = JSON.parse(localStorage.getItem('photoVotes')) || {};
-
-    const triggerImages = document.querySelectorAll('.destinations-slider__image-wrapper img, .content-card__image img');
-
-    triggerImages.forEach(img => {
-      img.classList.add('lightbox-trigger');
-      img.style.cursor = 'zoom-in';
-      img.addEventListener('click', () => openLightbox(img.src, img.alt));
-    });
-
-    function openLightbox(src, alt) {
-      currentImageId = src.split('/').pop().split('.')[0];
-      lightboxImg.src = src;
-      lightboxImg.alt = alt;
-      updateVoteUI();
-      lightbox.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeLightbox() {
-      lightbox.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-
-    lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox || e.target.classList.contains('lightbox__backdrop')) {
-        closeLightbox();
-      }
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
-    });
-
-    function updateVoteUI() {
-      const data = votes[currentImageId] || { likes: 0, dislikes: 0, userVote: null };
-      likeCountEl.textContent = data.likes;
-      dislikeCountEl.textContent = data.dislikes;
-
-      likeBtn.classList.toggle('active-like', data.userVote === 'like');
-      dislikeBtn.classList.toggle('active-dislike', data.userVote === 'dislike');
-    }
-
-    function handleVote(type) {
-      if (!votes[currentImageId]) {
-        votes[currentImageId] = { likes: 0, dislikes: 0, userVote: null };
-      }
-      const data = votes[currentImageId];
-
-      if (data.userVote === type) {
-        data[type + 's']--;
-        data.userVote = null;
-      } else {
-        if (data.userVote) {
-          data[data.userVote + 's']--;
+        function showDestSlide(index) {
+          destSlides.forEach(s => s.classList.remove('active'));
+          destDots.forEach(d => d.classList.remove('active'));
+          destSlides[index].classList.add('active');
+          destDots[index].classList.add('active');
+          destCurrent = index;
         }
-        data[type + 's']++;
-        data.userVote = type;
-      }
 
-      votes[currentImageId] = data;
-      localStorage.setItem('photoVotes', JSON.stringify(votes));
-      updateVoteUI();
-    }
-  </script>
-
-  <script>
-    const authModal = document.getElementById('auth-modal');
-    const loginForm = document.getElementById('login-form');
-    const registerForm = document.getElementById('register-form');
-    let lockInterval = null;
-
-    function openModal(type) {
-      authModal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-      switchModal(type);
-      clearMessages();
-    }
-
-    function closeModal() {
-      authModal.classList.remove('active');
-      document.body.style.overflow = '';
-      clearMessages();
-      if (lockInterval) clearInterval(lockInterval);
-    }
-
-    function switchModal(type) {
-      loginForm.classList.remove('active');
-      registerForm.classList.remove('active');
-      type === 'login' ? loginForm.classList.add('active') : registerForm.classList.add('active');
-      clearMessages();
-    }
-
-    function showMessage(id, text, type) {
-      const el = document.getElementById(id);
-      el.textContent = text;
-      el.className = `auth-modal__message ${type}`;
-    }
-
-    function clearMessages() {
-      document.getElementById('login-msg').textContent = '';
-      document.getElementById('login-msg').className = 'auth-modal__message';
-      document.getElementById('register-msg').textContent = '';
-      document.getElementById('register-msg').className = 'auth-modal__message';
-    }
-
-    const usersDB = JSON.parse(localStorage.getItem('usersDB')) || {};
-    function saveDB() { localStorage.setItem('usersDB', JSON.stringify(usersDB)); }
-
-    function isValidName(name) {
-      return /^[a-zA-Zа-яА-ЯёЁ\s]+$/.test(name) && name.trim().length >= 2;
-    }
-
-    function isValidEmail(email) {
-      return /^[a-zA-Z0-9._%+-]+@(gmail|mail|yandex|outlook|hotmail|yahoo|proton|icloud)\.[a-z]{2,}$/.test(email);
-    }
-
-    function isValidPassword(pass) {
-      return /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()])[A-Za-z\d!@#$%^&*()]{8,}$/.test(pass);
-    }
-
-    function handleRegister(e) {
-      e.preventDefault();
-      clearMessages();
-      const name = e.target.name.value.trim();
-      const email = e.target.email.value.trim().toLowerCase();
-      const password = e.target.password.value;
-
-      if (!isValidName(name)) return showMessage('register-msg', 'Имя: только буквы (рус/англ) и пробелы.', 'error');
-      if (!isValidEmail(email)) return showMessage('register-msg', 'Email: поддерживаются Gmail, Mail, Yandex и аналоги.', 'error');
-      if (!isValidPassword(password)) return showMessage('register-msg', 'Пароль: мин. 8 симв., 1 заглавная, 1 цифра, 1 спецсимвол (!@#$%^&*()), только латиница.', 'error');
-      if (usersDB[email]) return showMessage('register-msg', 'Этот email уже зарегистрирован.', 'error');
-
-      usersDB[email] = { name, password, fails: 0, lockUntil: 0 };
-      saveDB();
-      showMessage('register-msg', '✅ Регистрация успешна! Теперь войдите.', 'success');
-      e.target.reset();
-      setTimeout(() => switchModal('login'), 1500);
-    }
-
-    function handleLogin(e) {
-      e.preventDefault();
-      clearMessages();
-      const email = e.target.email.value.trim().toLowerCase();
-      const password = e.target.password.value;
-      const btn = document.getElementById('login-btn');
-
-      if (!isValidEmail(email)) return showMessage('login-msg', 'Введите корректный email.', 'error');
-
-      const user = usersDB[email];
-      if (!user) return showMessage('login-msg', 'Аккаунт не найден. Сначала зарегистрируйтесь.', 'error');
-
-      const now = Date.now();
-      if (now < user.lockUntil) {
-        const secLeft = Math.ceil((user.lockUntil - now) / 1000);
-        startLockTimer(secLeft, btn, email);
-        return;
-      }
-
-      if (user.password !== password) {
-        user.fails = (user.fails || 0) + 1;
-        saveDB();
-        if (user.fails >= 3) {
-          user.lockUntil = now + 30000;
-          saveDB();
-          startLockTimer(30, btn, email);
-          return showMessage('login-msg', 'Слишком много попыток. Подождите 30 сек.', 'error');
+        function changeDestSlide(dir) {
+          let next = destCurrent + dir;
+          if (next >= destTotal) next = 0;
+          if (next < 0) next = destTotal - 1;
+          showDestSlide(next);
+          resetDestTimer();
         }
-        return showMessage('login-msg', `❌ Неверный пароль. Осталось попыток: ${3 - user.fails}`, 'error');
-      }
 
-      user.fails = 0;
-      user.lockUntil = 0;
-      saveDB();
-      showMessage('login-msg', '✅ Вход выполнен успешно!', 'success');
-      setTimeout(() => {
-        closeModal();
-        e.target.reset();
-        document.querySelector('.header__auth-btn').textContent = user.name.split(' ')[0];
-        document.querySelector('.header__auth-btn').onclick = () => alert(`Привет, ${user.name}!`);
-      }, 1000);
-    }
+        function goToDestSlide(index) {
+          showDestSlide(index);
+          resetDestTimer();
+        }
 
-    function startLockTimer(seconds, btn, email) {
-      let sec = seconds;
-      btn.disabled = true;
-      btn.textContent = `Подождите ${sec}с`;
-      showMessage('login-msg', ` Вход заблокирован. Осталось: ${sec} сек`, 'error');
+        function startDestTimer() {
+          destInterval = setInterval(() => changeDestSlide(1), 4000);
+        }
 
-      lockInterval = setInterval(() => {
-        sec--;
-        btn.textContent = `Подождите ${sec}с`;
-        showMessage('login-msg', ` Вход заблокирован. Осталось: ${sec} сек`, 'error');
-        if (sec <= 0) {
-          clearInterval(lockInterval);
-          btn.disabled = false;
-          btn.textContent = 'Войти';
+        function resetDestTimer() {
+          clearInterval(destInterval);
+          startDestTimer();
+        }
+
+        startDestTimer();
+
+        let touchStartX = 0;
+        const sliderEl = document.querySelector('.destinations-slider');
+
+        sliderEl.addEventListener('touchstart', (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        sliderEl.addEventListener('touchend', (e) => {
+          const diff = touchStartX - e.changedTouches[0].screenX;
+          if (Math.abs(diff) > 50) {
+            changeDestSlide(diff > 0 ? 1 : -1);
+          }
+        }, { passive: true });
+      </script>
+
+      <script>
+        const lightbox = document.getElementById('photo-lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const likeCountEl = document.getElementById('like-count');
+        const dislikeCountEl = document.getElementById('dislike-count');
+        const likeBtn = document.querySelector('.lightbox__btn--like');
+        const dislikeBtn = document.querySelector('.lightbox__btn--dislike');
+
+        let currentImageId = '';
+        let votes = JSON.parse(localStorage.getItem('photoVotes')) || {};
+
+        const triggerImages = document.querySelectorAll('.destinations-slider__image-wrapper img, .content-card__image img');
+
+        triggerImages.forEach(img => {
+          img.classList.add('lightbox-trigger');
+          img.style.cursor = 'zoom-in';
+          img.addEventListener('click', () => openLightbox(img.src, img.alt));
+        });
+
+        function openLightbox(src, alt) {
+          currentImageId = src.split('/').pop().split('.')[0];
+          lightboxImg.src = src;
+          lightboxImg.alt = alt;
+          updateVoteUI();
+          lightbox.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+          lightbox.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+
+        lightbox.addEventListener('click', (e) => {
+          if (e.target === lightbox || e.target.classList.contains('lightbox__backdrop')) {
+            closeLightbox();
+          }
+        });
+
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
+        });
+
+        function updateVoteUI() {
+          const data = votes[currentImageId] || { likes: 0, dislikes: 0, userVote: null };
+          likeCountEl.textContent = data.likes;
+          dislikeCountEl.textContent = data.dislikes;
+
+          likeBtn.classList.toggle('active-like', data.userVote === 'like');
+          dislikeBtn.classList.toggle('active-dislike', data.userVote === 'dislike');
+        }
+
+        function handleVote(type) {
+          if (!votes[currentImageId]) {
+            votes[currentImageId] = { likes: 0, dislikes: 0, userVote: null };
+          }
+          const data = votes[currentImageId];
+
+          if (data.userVote === type) {
+            data[type + 's']--;
+            data.userVote = null;
+          } else {
+            if (data.userVote) {
+              data[data.userVote + 's']--;
+            }
+            data[type + 's']++;
+            data.userVote = type;
+          }
+
+          votes[currentImageId] = data;
+          localStorage.setItem('photoVotes', JSON.stringify(votes));
+          updateVoteUI();
+        }
+      </script>
+
+      <script>
+        const authModal = document.getElementById('auth-modal');
+        const loginForm = document.getElementById('login-form');
+        const registerForm = document.getElementById('register-form');
+        let lockInterval = null;
+
+        function openModal(type) {
+          authModal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+          switchModal(type);
           clearMessages();
-          usersDB[email].lockUntil = 0;
-          usersDB[email].fails = 0;
-          saveDB();
         }
-      }, 1000);
-    }
 
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && authModal.classList.contains('active')) closeModal();
-    });
-  </script>
+        function closeModal() {
+          authModal.classList.remove('active');
+          document.body.style.overflow = '';
+          clearMessages();
+          if (lockInterval) clearInterval(lockInterval);
+        }
 
-  <script>
-    function subscribeNewsletter() {
-      const input = document.getElementById('newsletter-input');
-      const msgDiv = document.getElementById('newsletter-message');
-      const email = input.value.trim().toLowerCase();
+        function switchModal(type) {
+          loginForm.classList.remove('active');
+          registerForm.classList.remove('active');
+          type === 'login' ? loginForm.classList.add('active') : registerForm.classList.add('active');
+          clearMessages();
+        }
 
-      console.log('Email:', email);
+        function showMessage(id, text, type) {
+          const el = document.getElementById(id);
+          el.textContent = text;
+          el.className = `auth-modal__message ${type}`;
+        }
 
-      const emailRegex = /^[a-zA-Z0-9._%+-]+@(gmail|mail|yandex|outlook|hotmail|yahoo|proton|icloud)\.[a-z]{2,}$/;
+        function clearMessages() {
+          document.getElementById('login-msg').textContent = '';
+          document.getElementById('login-msg').className = 'auth-modal__message';
+          document.getElementById('register-msg').textContent = '';
+          document.getElementById('register-msg').className = 'auth-modal__message';
+        }
 
-      if (!emailRegex.test(email)) {
-        msgDiv.innerHTML = '<span style="color:#ff4d4d;"> Введите корректный email</span>';
-        input.style.borderColor = '#ff4d4d';
-        setTimeout(() => input.style.borderColor = '#2a2a2a', 2000);
-        return;
-      }
+        const usersDB = JSON.parse(localStorage.getItem('usersDB')) || {};
+        function saveDB() { localStorage.setItem('usersDB', JSON.stringify(usersDB)); }
 
-      msgDiv.innerHTML = '<span style="color:#4dff88;">✅ Спасибо за подписку на рассылку!</span>';
-      input.value = '';
-      input.disabled = true;
+        function isValidName(name) {
+          return /^[a-zA-Zа-яА-ЯёЁ\s]+$/.test(name) && name.trim().length >= 2;
+        }
 
-      setTimeout(() => {
-        msgDiv.innerHTML = '';
-        input.disabled = false;
-      }, 4000);
-    }
-  </script>
+        function isValidEmail(email) {
+          return /^[a-zA-Z0-9._%+-]+@(gmail|mail|yandex|outlook|hotmail|yahoo|proton|icloud)\.[a-z]{2,}$/.test(email);
+        }
+
+        function isValidPassword(pass) {
+          return /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()])[A-Za-z\d!@#$%^&*()]{8,}$/.test(pass);
+        }
+
+        function handleRegister(e) {
+          e.preventDefault();
+          clearMessages();
+
+          const name = e.target.name.value.trim();
+          const email = e.target.email.value.trim().toLowerCase();
+          const password = e.target.password.value;
+          const passwordConfirm = e.target.password_confirm.value;
+
+          if (!isValidName(name)) return showMessage('register-msg', 'Имя: только буквы (рус/англ) и пробелы.', 'error');
+          if (!isValidEmail(email)) return showMessage('register-msg', 'Email: поддерживаются Gmail, Mail, Yandex и аналоги.', 'error');
+          if (!isValidPassword(password)) return showMessage('register-msg', 'Пароль: мин. 8 симв., 1 заглавная, 1 цифра, 1 спецсимвол (!@#$%^&*()), только латиница.', 'error');
+          if (password !== passwordConfirm) return showMessage('register-msg', 'Пароли не совпадают.', 'error');
+          if (usersDB[email]) return showMessage('register-msg', 'Этот email уже зарегистрирован.', 'error');
+
+          usersDB[email] = { name, password, fails: 0, lockUntil: 0 };
+          saveDB();
+
+          showMessage('register-msg', '✅ Регистрация успешна! Теперь войдите.', 'success');
+          e.target.reset();
+          setTimeout(() => switchModal('login'), 1500);
+        }
+
+        function handleLogin(e) {
+          e.preventDefault();
+          clearMessages();
+          const email = e.target.email.value.trim().toLowerCase();
+          const password = e.target.password.value;
+          const btn = document.getElementById('login-btn');
+
+          if (!isValidEmail(email)) return showMessage('login-msg', 'Введите корректный email.', 'error');
+
+          const user = usersDB[email];
+          if (!user) return showMessage('login-msg', 'Аккаунт не найден. Сначала зарегистрируйтесь.', 'error');
+
+          const now = Date.now();
+          if (now < user.lockUntil) {
+            const secLeft = Math.ceil((user.lockUntil - now) / 1000);
+            startLockTimer(secLeft, btn, email);
+            return;
+          }
+
+          if (user.password !== password) {
+            user.fails = (user.fails || 0) + 1;
+            saveDB();
+            if (user.fails >= 3) {
+              user.lockUntil = now + 30000;
+              saveDB();
+              startLockTimer(30, btn, email);
+              return showMessage('login-msg', 'Слишком много попыток. Подождите 30 сек.', 'error');
+            }
+            return showMessage('login-msg', `❌ Неверный пароль. Осталось попыток: ${3 - user.fails}`, 'error');
+          }
+
+          user.fails = 0;
+          user.lockUntil = 0;
+          saveDB();
+          showMessage('login-msg', '✅ Вход выполнен успешно!', 'success');
+          setTimeout(() => {
+            closeModal();
+            e.target.reset();
+            document.querySelector('.header__auth-btn').textContent = user.name.split(' ')[0];
+            document.querySelector('.header__auth-btn').onclick = () => alert(`Привет, ${user.name}!`);
+          }, 1000);
+        }
+
+        function startLockTimer(seconds, btn, email) {
+          let sec = seconds;
+          btn.disabled = true;
+          btn.textContent = `Подождите ${sec}с`;
+          showMessage('login-msg', ` Вход заблокирован. Осталось: ${sec} сек`, 'error');
+
+          lockInterval = setInterval(() => {
+            sec--;
+            btn.textContent = `Подождите ${sec}с`;
+            showMessage('login-msg', ` Вход заблокирован. Осталось: ${sec} сек`, 'error');
+            if (sec <= 0) {
+              clearInterval(lockInterval);
+              btn.disabled = false;
+              btn.textContent = 'Войти';
+              clearMessages();
+              usersDB[email].lockUntil = 0;
+              usersDB[email].fails = 0;
+              saveDB();
+            }
+          }, 1000);
+        }
+
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && authModal.classList.contains('active')) closeModal();
+        });
+      </script>
+
+      <script>
+        function subscribeNewsletter() {
+          const input = document.getElementById('newsletter-input');
+          const msgDiv = document.getElementById('newsletter-message');
+          const email = input.value.trim().toLowerCase();
+
+          console.log('Email:', email);
+
+          const emailRegex = /^[a-zA-Z0-9._%+-]+@(gmail|mail|yandex|outlook|hotmail|yahoo|proton|icloud)\.[a-z]{2,}$/;
+
+          if (!emailRegex.test(email)) {
+            msgDiv.innerHTML = '<span style="color:#ff4d4d;"> Введите корректный email</span>';
+            input.style.borderColor = '#ff4d4d';
+            setTimeout(() => input.style.borderColor = '#2a2a2a', 2000);
+            return;
+          }
+
+          msgDiv.innerHTML = '<span style="color:#4dff88;">✅ Спасибо за подписку на рассылку!</span>';
+          input.value = '';
+          input.disabled = true;
+
+          setTimeout(() => {
+            msgDiv.innerHTML = '';
+            input.disabled = false;
+          }, 4000);
+        }
+      </script>
 
 </body>
 
